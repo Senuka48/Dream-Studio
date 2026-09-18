@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -1316,91 +1316,1059 @@ are easy to share online.
      PORTFOLIO
 ========================= -->
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Dream Studios | Senuka Silva</title>
+
+<meta name="description"
+      content="Dream Studios by Senuka Silva — Video, Photography, Web Projects and Digital Design">
+
+
+<style>
+
+/* =========================
+   BASIC SETTINGS
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #04062e;
+    color: white;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+/* =========================
+   BLUE SECTION
+========================= */
+
+.blue-section {
+    padding: 80px 0;
+    background:
+        radial-gradient(
+            circle at top right,
+            #162869,
+            #04062e 55%
+        );
+}
+
+
+/* =========================
+   SECTION HEADING
+========================= */
+
+.section-heading {
+    text-align: center;
+    max-width: 750px;
+    margin: auto;
+}
+
+.kicker {
+    font-size: 13px;
+    letter-spacing: 4px;
+    font-weight: bold;
+    color: #6ea8ff;
+    margin-bottom: 15px;
+}
+
+.section-heading h2 {
+    font-size: 42px;
+    line-height: 1.15;
+    margin-bottom: 15px;
+}
+
+.section-heading p {
+    color: #b9c4e3;
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+
+/* =========================
+   PORTFOLIO TITLE
+========================= */
+
+.portfolio-title {
+    margin-top: 45px;
+    margin-bottom: 18px;
+}
+
+.portfolio-title h3 {
+    font-size: 24px;
+}
+
+
+/* =========================
+   SMALL PHOTO GALLERY
+========================= */
+
+.photo-gallery {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 14px;
+}
+
+
+.photo-card {
+
+    height: 145px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 14px;
+
+    background: #080d35;
+
+    border: 1px solid
+        rgba(255,255,255,0.12);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.photo-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(0,0,0,0.35);
+}
+
+
+.photo-card img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform 0.5s ease;
+}
+
+
+.photo-card:hover img {
+
+    transform: scale(1.08);
+}
+
+
+/* =========================
+   PHOTO OVERLAY
+========================= */
+
+.photo-overlay {
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 12px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0,0,0,0.9)
+        );
+}
+
+
+.photo-overlay h4 {
+
+    font-size: 15px;
+
+    margin-bottom: 3px;
+}
+
+
+.photo-overlay p {
+
+    font-size: 11px;
+
+    color: #d0d7ee;
+}
+
+
+/* =========================
+   VIDEO GALLERY
+========================= */
+
+.video-gallery {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 14px;
+}
+
+
+.video-card {
+
+    overflow: hidden;
+
+    border-radius: 14px;
+
+    background:
+        rgba(255,255,255,0.06);
+
+    border: 1px solid
+        rgba(255,255,255,0.12);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.video-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(0,0,0,0.35);
+}
+
+
+.video-card video {
+
+    width: 100%;
+
+    height: 145px;
+
+    display: block;
+
+    object-fit: cover;
+
+    background: #000;
+}
+
+
+/* =========================
+   VIDEO INFO
+========================= */
+
+.video-info {
+
+    padding: 12px;
+}
+
+
+.video-info span {
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: #7ea9ff;
+}
+
+
+.video-info h3 {
+
+    font-size: 16px;
+
+    margin-top: 5px;
+
+    margin-bottom: 5px;
+}
+
+
+.video-info p {
+
+    font-size: 11px;
+
+    color: #b9c4e3;
+
+    line-height: 1.4;
+}
+
+
+/* =========================
+   OTHER PROJECTS
+========================= */
+
+.portfolio {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 14px;
+
+    margin-top: 30px;
+}
+
+
+.project {
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    background:
+        rgba(255,255,255,0.06);
+
+    border: 1px solid
+        rgba(255,255,255,0.12);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.project:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(0,0,0,0.35);
+}
+
+
+.project-content {
+
+    padding: 18px;
+}
+
+
+.project-number {
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: #7ea9ff;
+}
+
+
+.project-content h3 {
+
+    font-size: 17px;
+
+    margin: 8px 0;
+}
+
+
+.project-content p {
+
+    font-size: 12px;
+
+    color: #b9c4e3;
+
+    line-height: 1.5;
+
+    margin-bottom: 14px;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.project-button {
+
+    display: inline-block;
+
+    padding: 8px 12px;
+
+    border-radius: 8px;
+
+    background: white;
+
+    color: #07102d;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.project-button:hover {
+
+    transform: translateX(4px);
+
+    background: #dce8ff;
+}
+
+
+/* =========================
+   MOBILE / TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+    .photo-gallery,
+    .video-gallery,
+    .portfolio {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 500px) {
+
+    .blue-section {
+
+        padding: 55px 0;
+    }
+
+    .section-heading h2 {
+
+        font-size: 30px;
+    }
+
+    .section-heading p {
+
+        font-size: 14px;
+    }
+
+    .photo-gallery,
+    .video-gallery,
+    .portfolio {
+
+        grid-template-columns: 1fr;
+    }
+
+    .photo-card {
+
+        height: 180px;
+    }
+
+    .video-card video {
+
+        height: 180px;
+    }
+
+}
+
+
+/* =========================
+   END
+========================= */
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =================================================
+     PORTFOLIO
+================================================= -->
+
 <section
-class="blue-section"
-id="portfolio">
+    class="blue-section"
+    id="portfolio">
 
-<div class="container">
-
-<div class="section-heading">
-
-<div class="kicker">
-PORTFOLIO
-</div>
-
-<h2>
-Your creative work,
-presented beautifully.
-</h2>
-
-<p>
-Replace these panels with your
-real projects, photos and videos.
-</p>
-
-</div>
+    <div class="container">
 
 
-<div class="portfolio">
+        <!-- HEADING -->
+
+        <div class="section-heading">
+
+            <div class="kicker">
+                PORTFOLIO
+            </div>
+
+            <h2>
+                Creative work,
+                presented beautifully.
+            </h2>
+
+            <p>
+                Explore my video projects,
+                photography, web projects,
+                posters and digital designs.
+            </p>
+
+        </div>
 
 
-<div class="project">
 
-<h3>
-Video Projects
-</h3>
+        <!-- =================================================
+             PHOTOGRAPHY
+        ================================================== -->
 
-<p>
-Stories • Events • Social Media
-</p>
+        <div class="portfolio-title">
 
-</div>
+            <h3>
+                📸 Photography
+            </h3>
 
-
-<div class="project">
-
-<h3>
-Photography
-</h3>
-
-<p>
-Creative photo work
-</p>
-
-</div>
+        </div>
 
 
-<div class="project">
-
-<h3>
-Web Projects
-</h3>
-
-<p>
-Digital experiences
-</p>
-
-</div>
+        <div class="photo-gallery">
 
 
-<div class="project">
+            <!-- PHOTO 01 -->
 
-<h3>
-Posters & Digital Design
-</h3>
+            <div class="photo-card">
 
-<p>
-Events • Celebrations • Graphics
-</p>
+                <img
+                    src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=700&q=80"
+                    alt="Nature Photography">
 
-</div>
+                <div class="photo-overlay">
+
+                    <h4>
+                        Nature
+                    </h4>
+
+                    <p>
+                        Creative Photography
+                    </p>
+
+                </div>
+
+            </div>
 
 
-</div>
+            <!-- PHOTO 02 -->
 
-</div>
+            <div class="photo-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=700&q=80"
+                    alt="Forest Photography">
+
+                <div class="photo-overlay">
+
+                    <h4>
+                        Adventure
+                    </h4>
+
+                    <p>
+                        Outdoor Photography
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PHOTO 03 -->
+
+            <div class="photo-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=700&q=80"
+                    alt="Landscape Photography">
+
+                <div class="photo-overlay">
+
+                    <h4>
+                        Landscape
+                    </h4>
+
+                    <p>
+                        Beautiful Moments
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PHOTO 04 -->
+
+            <div class="photo-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=700&q=80"
+                    alt="Beach Photography">
+
+                <div class="photo-overlay">
+
+                    <h4>
+                        Beach
+                    </h4>
+
+                    <p>
+                        Travel Photography
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PHOTO 05 -->
+
+            <div class="photo-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=700&q=80"
+                    alt="Mountain Photography">
+
+                <div class="photo-overlay">
+
+                    <h4>
+                        Mountains
+                    </h4>
+
+                    <p>
+                        Travel Collection
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PHOTO 06 -->
+
+            <div class="photo-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=700&q=80"
+                    alt="Forest Photography">
+
+                <div class="photo-overlay">
+
+                    <h4>
+                        Forest
+                    </h4>
+
+                    <p>
+                        Nature Collection
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PHOTO 07 -->
+
+            <div class="photo-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=700&q=80"
+                    alt="Creative Photography">
+
+                <div class="photo-overlay">
+
+                    <h4>
+                        Creative
+                    </h4>
+
+                    <p>
+                        Visual Stories
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PHOTO 08 -->
+
+            <div class="photo-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=700&q=80"
+                    alt="Nature Landscape">
+
+                <div class="photo-overlay">
+
+                    <h4>
+                        Landscape
+                    </h4>
+
+                    <p>
+                        Dream Studio
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             VIDEOS
+        ================================================== -->
+
+        <div class="portfolio-title">
+
+            <h3>
+                🎬 Video Projects
+            </h3>
+
+        </div>
+
+
+        <div class="video-gallery">
+
+
+            <!-- VIDEO 01 -->
+
+            <div class="video-card">
+
+                <video
+                    controls
+                    preload="metadata">
+
+                    <source
+                        src="video-project-1.mp4"
+                        type="video/mp4">
+
+                    Your browser does not support video.
+
+                </video>
+
+
+                <div class="video-info">
+
+                    <span>
+                        01
+                    </span>
+
+                    <h3>
+                        Tropical Fun Intro
+                    </h3>
+
+                    <p>
+                        YouTube / Social Media
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- VIDEO 02 -->
+
+            <div class="video-card">
+
+                <video
+                    controls
+                    preload="metadata">
+
+                    <source
+                        src="video-project-2.mp4"
+                        type="video/mp4">
+
+                    Your browser does not support video.
+
+                </video>
+
+
+                <div class="video-info">
+
+                    <span>
+                        02
+                    </span>
+
+                    <h3>
+                        Creative Video
+                    </h3>
+
+                    <p>
+                        Creative Production
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- VIDEO 03 -->
+
+            <div class="video-card">
+
+                <video
+                    controls
+                    preload="metadata">
+
+                    <source
+                        src="video-project-3.mp4"
+                        type="video/mp4">
+
+                    Your browser does not support video.
+
+                </video>
+
+
+                <div class="video-info">
+
+                    <span>
+                        03
+                    </span>
+
+                    <h3>
+                        Event Highlights
+                    </h3>
+
+                    <p>
+                        Events / Memories
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- VIDEO 04 -->
+
+            <div class="video-card">
+
+                <video
+                    controls
+                    preload="metadata">
+
+                    <source
+                        src="video-project-4.mp4"
+                        type="video/mp4">
+
+                    Your browser does not support video.
+
+                </video>
+
+
+                <div class="video-info">
+
+                    <span>
+                        04
+                    </span>
+
+                    <h3>
+                        Social Media
+                    </h3>
+
+                    <p>
+                        Digital Content
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             OTHER PROJECTS
+        ================================================== -->
+
+        <div class="portfolio">
+
+
+            <!-- WEB -->
+
+            <div class="project">
+
+                <div class="project-content">
+
+                    <span class="project-number">
+                        05
+                    </span>
+
+                    <h3>
+                        💻 Web Projects
+                    </h3>
+
+                    <p>
+                        Websites, landing pages
+                        and digital experiences.
+                    </p>
+
+                    <a
+                        href="https://sites.google.com/view/senuka-silva-dream-studio"
+                        target="_blank"
+                        class="project-button">
+
+                        View Projects →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- DESIGN -->
+
+            <div class="project">
+
+                <div class="project-content">
+
+                    <span class="project-number">
+                        06
+                    </span>
+
+                    <h3>
+                        🎨 Digital Design
+                    </h3>
+
+                    <p>
+                        Posters, graphics and
+                        creative digital artwork.
+                    </p>
+
+                    <a
+                        href="https://sites.google.com/view/senuka-silva-dream-studio"
+                        target="_blank"
+                        class="project-button">
+
+                        View Designs →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- SOCIAL MEDIA -->
+
+            <div class="project">
+
+                <div class="project-content">
+
+                    <span class="project-number">
+                        07
+                    </span>
+
+                    <h3>
+                        📱 Social Media
+                    </h3>
+
+                    <p>
+                        Social media graphics,
+                        reels and digital content.
+                    </p>
+
+                    <a
+                        href="https://sites.google.com/view/senuka-silva-dream-studio"
+                        target="_blank"
+                        class="project-button">
+
+                        Explore →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- CREATIVE -->
+
+            <div class="project">
+
+                <div class="project-content">
+
+                    <span class="project-number">
+                        08
+                    </span>
+
+                    <h3>
+                        ✨ Creative Work
+                    </h3>
+
+                    <p>
+                        Unique creative ideas,
+                        experiments and projects.
+                    </p>
+
+                    <a
+                        href="https://sites.google.com/view/senuka-silva-dream-studio"
+                        target="_blank"
+                        class="project-button">
+
+                        Explore →
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
 
 </section>
+
+
+</body>
+
+</html>
 
 
 <!-- =========================
@@ -1938,7 +2906,7 @@ src="whatsapp-logo.png"
 alt="WhatsApp">
 
 </a>
-
+<link rel="icon" type="image/png" href="dream-studio-logo.png">
 
 <!-- =========================
      FOOTER
