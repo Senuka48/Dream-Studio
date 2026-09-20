@@ -1,3 +1,4 @@
+
 <html>
 <html lang="en">
 <head>
@@ -889,6 +890,121 @@ footer {
         padding: 75px 0;
     }
 
+}
+
+
+/* =========================
+   COMMENT SECTION
+========================= */
+
+.comment-section {
+    padding: 80px 0;
+}
+
+.comment-container {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.comment-form {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px;
+    padding: 25px;
+    margin-top: 30px;
+}
+
+.comment-form input,
+.comment-form textarea,
+.comment-form select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 15px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    background: rgba(255,255,255,0.06);
+    color: #fff;
+    outline: none;
+    font-family: inherit;
+}
+
+.comment-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.comment-form input::placeholder,
+.comment-form textarea::placeholder {
+    color: #9daedc;
+}
+
+.comment-form select option {
+    color: #111;
+}
+
+.comment-submit {
+    border: none;
+    cursor: pointer;
+}
+
+.comment-list {
+    display: grid;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.comment-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.comment-name {
+    font-weight: bold;
+}
+
+.comment-date {
+    color: #7f8fbd;
+    font-size: 11px;
+}
+
+.comment-stars {
+    color: #91aaff;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.comment-text {
+    color: #c4cce5;
+    line-height: 1.6;
+    font-size: 14px;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.delete-comment {
+    margin-top: 12px;
+    padding: 6px 10px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 7px;
+    background: transparent;
+    color: #9daedc;
+    cursor: pointer;
+}
+
+.no-comments {
+    text-align: center;
+    color: #8e9bc8;
+    padding: 25px;
 }
 
 </style>
@@ -2366,6 +2482,122 @@ body {
 </section>
 
 
+
+<script>
+const commentForm = document.getElementById("commentForm");
+const commentList = document.getElementById("commentList");
+
+let comments = JSON.parse(
+    localStorage.getItem("dreamStudioComments") || "[]"
+);
+
+function escapeHTML(value) {
+    const div = document.createElement("div");
+    div.textContent = value;
+    return div.innerHTML;
+}
+
+function showComments() {
+
+    commentList.innerHTML = "";
+
+    if (comments.length === 0) {
+        commentList.innerHTML = `
+            <div class="no-comments">
+                No comments yet. Be the first to leave feedback! ✨
+            </div>
+        `;
+        return;
+    }
+
+    comments.forEach((comment, index) => {
+
+        const card = document.createElement("div");
+        card.className = "comment-card";
+
+        card.innerHTML = `
+            <div class="comment-header">
+                <div class="comment-name">
+                    ${escapeHTML(comment.name)}
+                </div>
+
+                <div class="comment-date">
+                    ${escapeHTML(comment.date)}
+                </div>
+            </div>
+
+            <div class="comment-stars">
+                ${"★".repeat(comment.rating)}
+                ${"☆".repeat(5 - comment.rating)}
+            </div>
+
+            <div class="comment-text">
+                ${escapeHTML(comment.text)}
+            </div>
+
+            <button
+                type="button"
+                class="delete-comment"
+                onclick="deleteComment(${index})">
+                Delete
+            </button>
+        `;
+
+        commentList.appendChild(card);
+    });
+}
+
+commentForm.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name = document
+        .getElementById("commentName")
+        .value.trim();
+
+    const rating = Number(
+        document.getElementById("commentRating").value
+    );
+
+    const commentText = document
+        .getElementById("commentText")
+        .value.trim();
+
+    if (!name || !rating || !commentText) return;
+
+    comments.unshift({
+        name: name,
+        rating: rating,
+        text: commentText,
+        date: new Date().toLocaleDateString()
+    });
+
+    localStorage.setItem(
+        "dreamStudioComments",
+        JSON.stringify(comments)
+    );
+
+    commentForm.reset();
+    showComments();
+});
+
+function deleteComment(index) {
+
+    if (!confirm("Delete this comment?")) return;
+
+    comments.splice(index, 1);
+
+    localStorage.setItem(
+        "dreamStudioComments",
+        JSON.stringify(comments)
+    );
+
+    showComments();
+}
+
+showComments();
+</script>
+
 </body>
 
 </html>
@@ -2650,6 +2882,65 @@ Open App ↗
 
 </section>
 
+
+
+<!-- =========================
+     COMMENTS
+========================= -->
+
+<section class="comment-section" id="comments">
+
+    <div class="container comment-container">
+
+        <div class="section-heading">
+            <div class="kicker">FEEDBACK</div>
+
+            <h2>Comments & Feedback</h2>
+
+            <p>
+                Share your thoughts about Dream Studios.
+            </p>
+        </div>
+
+        <form class="comment-form" id="commentForm">
+
+            <input
+                type="text"
+                id="commentName"
+                placeholder="Your name"
+                maxlength="50"
+                required
+            >
+
+            <select id="commentRating" required>
+                <option value="">Choose a rating</option>
+                <option value="5">★★★★★ — Excellent</option>
+                <option value="4">★★★★☆ — Very Good</option>
+                <option value="3">★★★☆☆ — Good</option>
+                <option value="2">★★☆☆☆ — Okay</option>
+                <option value="1">★☆☆☆☆ — Needs Improvement</option>
+            </select>
+
+            <textarea
+                id="commentText"
+                placeholder="Write your comment..."
+                maxlength="500"
+                required
+            ></textarea>
+
+            <button
+                type="submit"
+                class="btn primary comment-submit">
+                Post Comment →
+            </button>
+
+        </form>
+
+        <div class="comment-list" id="commentList"></div>
+
+    </div>
+
+</section>
 
 <!-- =========================
      CONTACT
