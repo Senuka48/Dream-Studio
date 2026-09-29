@@ -891,121 +891,6 @@ footer {
 
 }
 
-
-/* =========================
-   COMMENT SECTION
-========================= */
-
-.comment-section {
-    padding: 80px 0;
-}
-
-.comment-container {
-    max-width: 850px;
-    margin: 0 auto;
-}
-
-.comment-form {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 20px;
-    padding: 25px;
-    margin-top: 30px;
-}
-
-.comment-form input,
-.comment-form textarea,
-.comment-form select {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 13px 15px;
-    margin-bottom: 12px;
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 10px;
-    background: rgba(255,255,255,0.06);
-    color: #fff;
-    outline: none;
-    font-family: inherit;
-}
-
-.comment-form textarea {
-    min-height: 120px;
-    resize: vertical;
-}
-
-.comment-form input::placeholder,
-.comment-form textarea::placeholder {
-    color: #9daedc;
-}
-
-.comment-form select option {
-    color: #111;
-}
-
-.comment-submit {
-    border: none;
-    cursor: pointer;
-}
-
-.comment-list {
-    display: grid;
-    gap: 15px;
-    margin-top: 25px;
-}
-
-.comment-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 16px;
-    padding: 20px;
-}
-
-.comment-header {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    margin-bottom: 8px;
-}
-
-.comment-name {
-    font-weight: bold;
-}
-
-.comment-date {
-    color: #7f8fbd;
-    font-size: 11px;
-}
-
-.comment-stars {
-    color: #91aaff;
-    letter-spacing: 2px;
-    margin-bottom: 8px;
-}
-
-.comment-text {
-    color: #c4cce5;
-    line-height: 1.6;
-    font-size: 14px;
-    white-space: pre-wrap;
-    word-break: break-word;
-}
-
-.delete-comment {
-    margin-top: 12px;
-    padding: 6px 10px;
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 7px;
-    background: transparent;
-    color: #9daedc;
-    cursor: pointer;
-}
-
-.no-comments {
-    text-align: center;
-    color: #8e9bc8;
-    padding: 25px;
-}
-
 </style>
 </head>
 
@@ -2481,122 +2366,6 @@ body {
 </section>
 
 
-
-<script>
-const commentForm = document.getElementById("commentForm");
-const commentList = document.getElementById("commentList");
-
-let comments = JSON.parse(
-    localStorage.getItem("dreamStudioComments") || "[]"
-);
-
-function escapeHTML(value) {
-    const div = document.createElement("div");
-    div.textContent = value;
-    return div.innerHTML;
-}
-
-function showComments() {
-
-    commentList.innerHTML = "";
-
-    if (comments.length === 0) {
-        commentList.innerHTML = `
-            <div class="no-comments">
-                No comments yet. Be the first to leave feedback! ✨
-            </div>
-        `;
-        return;
-    }
-
-    comments.forEach((comment, index) => {
-
-        const card = document.createElement("div");
-        card.className = "comment-card";
-
-        card.innerHTML = `
-            <div class="comment-header">
-                <div class="comment-name">
-                    ${escapeHTML(comment.name)}
-                </div>
-
-                <div class="comment-date">
-                    ${escapeHTML(comment.date)}
-                </div>
-            </div>
-
-            <div class="comment-stars">
-                ${"★".repeat(comment.rating)}
-                ${"☆".repeat(5 - comment.rating)}
-            </div>
-
-            <div class="comment-text">
-                ${escapeHTML(comment.text)}
-            </div>
-
-            <button
-                type="button"
-                class="delete-comment"
-                onclick="deleteComment(${index})">
-                Delete
-            </button>
-        `;
-
-        commentList.appendChild(card);
-    });
-}
-
-commentForm.addEventListener("submit", function(event) {
-
-    event.preventDefault();
-
-    const name = document
-        .getElementById("commentName")
-        .value.trim();
-
-    const rating = Number(
-        document.getElementById("commentRating").value
-    );
-
-    const commentText = document
-        .getElementById("commentText")
-        .value.trim();
-
-    if (!name || !rating || !commentText) return;
-
-    comments.unshift({
-        name: name,
-        rating: rating,
-        text: commentText,
-        date: new Date().toLocaleDateString()
-    });
-
-    localStorage.setItem(
-        "dreamStudioComments",
-        JSON.stringify(comments)
-    );
-
-    commentForm.reset();
-    showComments();
-});
-
-function deleteComment(index) {
-
-    if (!confirm("Delete this comment?")) return;
-
-    comments.splice(index, 1);
-
-    localStorage.setItem(
-        "dreamStudioComments",
-        JSON.stringify(comments)
-    );
-
-    showComments();
-}
-
-showComments();
-</script>
-
 </body>
 
 </html>
@@ -2769,7 +2538,7 @@ YouTube Channel
 
 <a
 class="btn outline"
-href="https://www.youtube.com/@senukasilva6324"
+href="https://www.youtube.com/@senuka48"
 target="_blank">
 
 Open YouTube ↗
@@ -2804,7 +2573,7 @@ d="m10 9 5 3-5 3z"/>
 </div>
 
 <h3>
-Senuka Silva & Dream Studio
+Dream Studio
 </h3>
 
 <p>
@@ -2882,65 +2651,6 @@ Open App ↗
 </section>
 
 
-
-<!-- =========================
-     COMMENTS
-========================= -->
-
-<section class="comment-section" id="comments">
-
-    <div class="container comment-container">
-
-        <div class="section-heading">
-            <div class="kicker">FEEDBACK</div>
-
-            <h2>Comments & Feedback</h2>
-
-            <p>
-                Share your thoughts about Dream Studios.
-            </p>
-        </div>
-
-        <form class="comment-form" id="commentForm">
-
-            <input
-                type="text"
-                id="commentName"
-                placeholder="Your name"
-                maxlength="50"
-                required
-            >
-
-            <select id="commentRating" required>
-                <option value="">Choose a rating</option>
-                <option value="5">★★★★★ — Excellent</option>
-                <option value="4">★★★★☆ — Very Good</option>
-                <option value="3">★★★☆☆ — Good</option>
-                <option value="2">★★☆☆☆ — Okay</option>
-                <option value="1">★☆☆☆☆ — Needs Improvement</option>
-            </select>
-
-            <textarea
-                id="commentText"
-                placeholder="Write your comment..."
-                maxlength="500"
-                required
-            ></textarea>
-
-            <button
-                type="submit"
-                class="btn primary comment-submit">
-                Post Comment →
-            </button>
-
-        </form>
-
-        <div class="comment-list" id="commentList"></div>
-
-    </div>
-
-</section>
-
 <!-- =========================
      CONTACT
 ========================= -->
@@ -2999,16 +2709,50 @@ WhatsApp
 +94 71 208 2533
 </span>
 
+
 </div>
 
 </a>
 
+<a
+class="contact-item"
+href="https://wa.me/94762788480?text=Hello%20Senuka%2C%20I%E2%80%99m%20interested%20in%20Dream%20Studio%20services.%20Please%20provide%20more%20information%20and%20pricing."
+target="_blank">
+
+<div class="small-icon">
+
+<svg viewBox="0 0 24 24">
+
+<path
+d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5z"/>
+
+<path
+d="M9 8c.3 2 1.5 3.5 3.5 4.5l1.5-1 1.5 1.5c-1 1.5-2.5 1.5-4 1C9 13 7 11 6.5 9.5 6 8 6.5 7 8 7z"/>
+
+</svg>
+
+</div>
+
+<div>
+
+<strong>
+WhatsApp
+</strong>
+
+
+<span>
++94 76 278 8480
+</span>
+
+</div>
+
+</a>
 
 <!-- YOUTUBE -->
 
 <a
 class="contact-item"
-href="https://www.youtube.com/@senukasilva6324"
+href="https://www.youtube.com/@senuka48"
 target="_blank">
 
 <div class="small-icon">
@@ -3068,7 +2812,7 @@ d="m10 8 6 4-6 4z"/>
 <div>
 
 <strong>
-Senuka Silva & Dream Studio
+Dream Studio
 </strong>
 
 <span>
@@ -3105,11 +2849,47 @@ d="m4 7 8 6 8-6"/>
 <div>
 
 <strong>
-Senuka Silva
+Email
 </strong>
 
 <span>
+senukasilva48@gmail.com
+</span>
+
+</div>
+
+</a>
+
+<a
+class="contact-item"
+href="mailto:senukasilva43@gmail.com">
+
+<div class="small-icon">
+
+<svg viewBox="0 0 24 24">
+
+<rect
+x="3"
+y="5"
+width="18"
+height="14"
+rx="2"/>
+
+<path
+d="m4 7 8 6 8-6"/>
+
+</svg>
+
+</div>
+
+<div>
+
+<strong>
 Email
+</strong>
+
+<span>
+senukasilva43@gmail.com
 </span>
 
 </div>
@@ -3149,45 +2929,6 @@ Dream Studio App
 
 <span>
 Open Application
-</span>
-
-</div>
-
-</a>
-
-<!-- SENUKA SILVA BUSINESS CARD -->
-
-<a
-class="contact-item"
-href="https://canva.link/o9tp3id1e6ginov"
-target="_blank"
-rel="noopener noreferrer">
-
-<div class="small-icon">
-
-<svg viewBox="0 0 24 24" aria-hidden="true">
-
-<rect
-x="3"
-y="5"
-width="18"
-height="14"
-rx="2"/>
-
-<path d="M7 9h10M7 13h6M7 16h4"/>
-
-</svg>
-
-</div>
-
-<div>
-
-<strong>
-Senuka Silva Business Card
-</strong>
-
-<span>
-Business Card / Signature
 </span>
 
 </div>
